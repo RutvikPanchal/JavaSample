@@ -1,0 +1,18 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: java-sample
+  namespace: sandbox
+spec:
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/RutvikPanchal/JavaSample.git'
+  strategy:
+    type: Docker
+    dockerStrategy:
+      dockerFilePath: src/main/docker/Dockerfile.jvm
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'java-sample:latest'

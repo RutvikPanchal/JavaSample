@@ -1,0 +1,26 @@
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  name: java-sample
+  namespace: sandbox
+spec:
+  replicas: 1
+  selector:
+    app: java-sample
+  template:
+    spec:
+      containers:
+        - name: container
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/sandbox/java-sample:latest
+          ports:
+            - containerPort: 8080
+              protocol: 8080
+  strategy:
+    type: Rolling
+    rollingParameters:
+      timeoutSeconds: 600
+      updatePeriodSeconds: 1
+      intervalSeconds: 1
+      maxSurge: 25%
+      maxUnavailable: 25%
