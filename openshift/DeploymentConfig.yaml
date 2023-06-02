@@ -27,3 +27,5 @@ spec:
       intervalSeconds: 1
       maxSurge: 25%
       maxUnavailable: 25%
+  triggers:
+    - type: Generic
