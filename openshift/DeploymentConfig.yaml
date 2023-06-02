@@ -8,6 +8,9 @@ spec:
   selector:
     app: java-sample
   template:
+    metadata:
+      labels:
+        app: java-sample
     spec:
       containers:
         - name: container
