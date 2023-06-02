@@ -11,7 +11,7 @@ spec:
   strategy:
     type: Docker
     dockerStrategy:
-      dockerFilePath: src/main/docker/Dockerfile.jvm
+      dockerfilePath: src/main/docker/Dockerfile.jvm
   output:
     to:
       kind: ImageStreamTag
